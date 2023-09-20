@@ -32,13 +32,13 @@ public class target1script : MonoBehaviour
         if (leftRight == 1)
         {
             right = true;
-            Debug.Log("right");
+            // Debug.Log("right");
             xPos = 14;
         }
         else if (leftRight == 0)
         {
             left = true;
-            Debug.Log("left");
+            // Debug.Log("left");
             xPos = -12;
         }
 
@@ -47,8 +47,7 @@ public class target1script : MonoBehaviour
         randomScale = UnityEngine.Random.Range(0.3f, 0.8f);
         transform.localScale = new Vector3( randomScale, randomScale, 1);
         transform.position = new Vector3(xPos, yPos, 1);
-        
-
+    
     }
 
     // Update is called once per frame
@@ -77,6 +76,18 @@ public class target1script : MonoBehaviour
         else if (transform.position.x <= -10f)
         {
             right = true;
+        }
+
+        if (Input.GetMouseButtonDown(0) && gameObject == target1) {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                // Debug.Log("target 1 (center)");
+
+                TargetListener targetListener = FindObjectOfType<TargetListener>();
+                targetListener.AddPoint();
+
+            }
         }
     }
 }

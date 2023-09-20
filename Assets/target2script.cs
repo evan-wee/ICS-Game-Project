@@ -32,13 +32,13 @@ public class target2script : MonoBehaviour
         if (leftRight == 1)
         {
             right = true;
-            Debug.Log("right");
+
             xPos = 14;
         }
         else if (leftRight == 0)
         {
             left = true;
-            Debug.Log("left");
+            // Debug.Log("left");
             xPos = -12;
         }
 
@@ -78,5 +78,17 @@ public class target2script : MonoBehaviour
         {
             right = true;
         }
+
+        if (Input.GetMouseButtonDown(0) && gameObject == target1) {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                // Debug.Log("target 2 (top)");
+
+                TargetListener targetListener = FindObjectOfType<TargetListener>();
+                targetListener.AddPoint();
+            }
+        }
+
     }
 }
