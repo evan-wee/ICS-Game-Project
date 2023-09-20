@@ -87,6 +87,9 @@ public class target1script : MonoBehaviour
                 TargetListener targetListener = FindObjectOfType<TargetListener>();
                 targetListener.AddPoint();
 
+				Instantiate(target1);
+				Destroy(target1);
+
             }
         }
     }

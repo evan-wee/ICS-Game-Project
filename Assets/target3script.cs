@@ -7,7 +7,7 @@ public class target3script : MonoBehaviour
 
     public float randomScale;
 
-    public GameObject target1;
+    public GameObject target3;
 
     public float leftRight;
 
@@ -75,7 +75,7 @@ public class target3script : MonoBehaviour
             right = true;
         }
 
-        if (Input.GetMouseButtonDown(0) && gameObject == target1) {
+        if (Input.GetMouseButtonDown(0) && gameObject == target3) {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
@@ -83,6 +83,10 @@ public class target3script : MonoBehaviour
 
                 TargetListener targetListener = FindObjectOfType<TargetListener>();
                 targetListener.AddPoint();
+
+				Instantiate(target3);
+				Destroy(target3);
+
             }
         }
     }
