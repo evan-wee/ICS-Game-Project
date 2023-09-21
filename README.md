@@ -1,7 +1,7 @@
   
 ## Marine Training
 
-**==Arvin, Alex, Alan, Evan==**
+**Arvin, Alex, Alan, Evan**
 
 ### Instructions:
 
